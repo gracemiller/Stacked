@@ -92,15 +92,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Logged In View Controller-->
         <scene sceneID="aKJ-m3-kCK">
             <objects>
-                <viewController id="YHT-FT-D77" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoggedInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YHT-FT-D77" customClass="LoggedInViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FM0-VS-beE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="Logout" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-YE-ppt">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Logout" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-YE-ppt">
                                 <rect key="frame" x="40" y="313.5" width="295" height="40"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -114,10 +114,15 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButton:" destination="YHT-FT-D77" eventType="touchUpInside" id="T6e-3x-Fr0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aRJ-YE-ppt" firstAttribute="leading" secondItem="IB5-j3-01Q" secondAttribute="leading" constant="40" id="P3j-2K-kfq"/>
+                            <constraint firstItem="IB5-j3-01Q" firstAttribute="trailing" secondItem="aRJ-YE-ppt" secondAttribute="trailing" constant="40" id="q2h-GT-mP3"/>
                             <constraint firstItem="aRJ-YE-ppt" firstAttribute="centerY" secondItem="FM0-VS-beE" secondAttribute="centerY" id="uIl-Hb-iab"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IB5-j3-01Q"/>
@@ -125,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5W-9r-WnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="133"/>
+            <point key="canvasLocation" x="1537" y="11"/>
         </scene>
     </scenes>
 </document>

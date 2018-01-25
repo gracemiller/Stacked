@@ -19,7 +19,7 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                print ("success")
+            self.presentLoggedInScreen()
             })
         }
     }
@@ -34,9 +34,19 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    print ("success")
+                self.presentLoggedInScreen()
                 })
             }
+        
+    }
+    
+    func presentLoggedInScreen() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let LoggedInViewController: LoggedInViewController = storyboard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
+        self.present(LoggedInViewController, animated: true, completion: nil)
+        
+        
     }
 }
 
