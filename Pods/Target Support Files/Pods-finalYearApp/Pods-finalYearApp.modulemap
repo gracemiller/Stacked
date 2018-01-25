@@ -1,0 +1,6 @@
+framework module Pods_finalYearApp {
+  umbrella header "Pods-finalYearApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
