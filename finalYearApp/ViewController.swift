@@ -8,8 +8,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
+    //LOGIN IN
+    
     @IBAction func createAccountButton(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text{
             
@@ -48,5 +56,5 @@ class ViewController: UIViewController {
         
         
     }
-}
 
+}
