@@ -1,22 +1,87 @@
 import UIKit
+import AVFoundation
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var captureSession = AVCaptureSession()
+    var backCamera: AVCaptureDevice?
+    var frontCamera: AVCaptureDevice?
+    var currentCamera: AVCaptureDevice?
+    
+    var photoOutput: AVCapturePhotoOutput?
+    
+    var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    
+    var image: UIImage?
 
-    @IBOutlet var cameraImage: UIImageView!
+    //@IBOutlet var cameraImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupCameraSession()
+        setupDevice()
+        setupInputOutput()
+        setupPreviewLayer()
+        setupRunningCaptureSession()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cameraButton(_ sender: UIButton) {
+    func setupCameraSession() {
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+    }
+    
+    func setupDevice() {
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+        let devices = deviceDiscoverySession.devices
         
+        for device in devices {
+            if device.position == AVCaptureDevice.Position.back {
+                backCamera = device
+            } else if device.position == AVCaptureDevice.Position.front {
+                frontCamera = device
+            }
+            
+        }
+        currentCamera = backCamera
+    }
+    func setupInputOutput() {
+        do {
+            let captureDeviceInput = try AVCaptureDeviceInput(device: currentCamera!)
+            captureSession.addInput(captureDeviceInput)
+            photoOutput = AVCapturePhotoOutput()
+            photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            captureSession.addOutput(photoOutput!)
+        } catch {
+           print(error)
+        }
+        
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation() {
+            image = UIImage(data: imageData)
+            performSegue(withIdentifier: "showPhotoSegue", sender: nil)
+        }
+    }
+    
+    func setupPreviewLayer() {
+        cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        cameraPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        cameraPreviewLayer?.frame = self.view.frame
+        self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
+        
+    }
+    
+    func setupRunningCaptureSession() {
+        captureSession.startRunning()
+        
+    }
+    
+    @IBAction func cameraButton(_ sender: Any) {
+        let settings = AVCapturePhotoSettings()
+        photoOutput?.capturePhoto(with: settings, delegate: self as! AVCapturePhotoCaptureDelegate)
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             let cameraButton = UIImagePickerController()
             cameraButton.delegate = self
@@ -28,35 +93,27 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    @IBAction func photoLibrary(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            let cameraButton = UIImagePickerController()
-            cameraButton.delegate = self
-            cameraButton.sourceType = UIImagePickerControllerSourceType.photoLibrary;
-            cameraButton.allowsEditing = true
-            self.present(cameraButton, animated: true, completion: nil)
-        }
-    }
     
-    @IBAction func saveButton(_ sender: UIButton) {
-        
-        let imageData = UIImageJPEGRepresentation(cameraImage.image!, 0.6)
-        let compressedJPEGImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
-        saveNotice()
-        
-    }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]) {
-        cameraImage.image = image
-        self.dismiss(animated: true, completion: nil);
-    }
+//    @IBAction func photoLibrary(_ sender: UIButton) {
+//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+//            let cameraButton = UIImagePickerController()
+//            cameraButton.delegate = self
+//            cameraButton.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+//            cameraButton.allowsEditing = true
+//            self.present(cameraButton, animated: true, completion: nil)
+//        }
+//    }
     
-    func saveNotice() {
-        
-        let alertController = UIAlertController(title: "Image Saved!", message: "Your Image was successfully saved", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        present(alertController, animated: true, completion: nil)
-    }
 }
+
+//extension ViewController: AVCapturePhotoCaptureDelegate {
+//    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+//        if let imageData = photo.fileDataRepresentation() {
+//        image = UIImage(data: imageData)
+//        performSegue(withIdentifier: "showPhotoSegue", sender: nil)
+//        }
+//    }
+//
+//}
+

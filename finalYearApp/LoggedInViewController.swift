@@ -14,7 +14,7 @@ class LoggedInViewController: UIViewController {
         CameraVC?.didMove(toParentViewController: self)
         CameraVC?.view.frame = scrollView.bounds
         
-        let ProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as UIViewController!
+        let ProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as UIViewController!
         self.addChildViewController(ProfileVC!)
         self.scrollView.addSubview((ProfileVC!.view))
         ProfileVC?.didMove(toParentViewController: self)
@@ -32,7 +32,6 @@ class LoggedInViewController: UIViewController {
         
         do {
             try Auth.auth().signOut()
-            
             dismiss(animated: true, completion: nil )
             }   catch {
             print("There was a problem logging out")

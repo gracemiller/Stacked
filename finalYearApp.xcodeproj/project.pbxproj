@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		01464C2914785CB7FF009DC8 /* Pods_finalYearApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8016739C17AA56DC054197F /* Pods_finalYearApp.framework */; };
 		3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */; };
-		3FBC8CA8201B4B4C0082F993 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8CA7201B4B4C0082F993 /* ProfileViewController.swift */; };
+		3FBC8CA8201B4B4C0082F993 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8CA7201B4B4C0082F993 /* PreviewViewController.swift */; };
 		3FBC8CAA201F311E0082F993 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8CA9201F311E0082F993 /* CameraViewController.swift */; };
 		3FD23631201A32D600E20854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD23630201A32D600E20854 /* AppDelegate.swift */; };
 		3FD23633201A32D600E20854 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD23632201A32D600E20854 /* ViewController.swift */; };
@@ -21,7 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoggedInViewController.swift; path = "/Users/Student/Documents/Grad Project/finalYearApp/finalYearApp/LoggedInViewController.swift"; sourceTree = "<absolute>"; };
-		3FBC8CA7201B4B4C0082F993 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3FBC8CA7201B4B4C0082F993 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		3FBC8CA9201F311E0082F993 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		3FD2362D201A32D600E20854 /* finalYearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalYearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD23630201A32D600E20854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 				3FD23630201A32D600E20854 /* AppDelegate.swift */,
 				3FBC8CA9201F311E0082F993 /* CameraViewController.swift */,
 				3FD23632201A32D600E20854 /* ViewController.swift */,
-				3FBC8CA7201B4B4C0082F993 /* ProfileViewController.swift */,
+				3FBC8CA7201B4B4C0082F993 /* PreviewViewController.swift */,
 				3FD23634201A32D600E20854 /* Main.storyboard */,
 				3FD23637201A32D600E20854 /* Assets.xcassets */,
 				3FD23639201A32D600E20854 /* LaunchScreen.storyboard */,
@@ -236,7 +236,7 @@
 			files = (
 				3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */,
 				3FBC8CAA201F311E0082F993 /* CameraViewController.swift in Sources */,
-				3FBC8CA8201B4B4C0082F993 /* ProfileViewController.swift in Sources */,
+				3FBC8CA8201B4B4C0082F993 /* PreviewViewController.swift in Sources */,
 				3FD23633201A32D600E20854 /* ViewController.swift in Sources */,
 				3FD23631201A32D600E20854 /* AppDelegate.swift in Sources */,
 			);
