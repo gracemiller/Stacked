@@ -1,5 +1,4 @@
 import UIKit
-import FirebaseAuth
 
 class LoggedInViewController: UIViewController {
 
@@ -8,38 +7,24 @@ class LoggedInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let CameraVC = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as UIViewController!
-        self.addChildViewController(CameraVC!)
-        self.scrollView.addSubview((CameraVC!.view))
-        CameraVC?.didMove(toParentViewController: self)
-        CameraVC?.view.frame = scrollView.bounds
+        let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController!
+        self.addChildViewController(profileVC!)
+        self.scrollView.addSubview((profileVC!.view))
+        profileVC?.didMove(toParentViewController: self)
+        profileVC?.view.frame = scrollView.bounds
         
-        let ProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as UIViewController!
-        self.addChildViewController(ProfileVC!)
-        self.scrollView.addSubview((ProfileVC!.view))
-        ProfileVC?.didMove(toParentViewController: self)
-        ProfileVC?.view.frame = scrollView.bounds
+        let cameraVC = self.storyboard?.instantiateViewController(withIdentifier: "cameraVC") as! CameraViewController!
+        self.addChildViewController(cameraVC!)
+        self.scrollView.addSubview((cameraVC!.view))
+        cameraVC?.didMove(toParentViewController: self)
+        cameraVC?.view.frame = scrollView.bounds
         
-        var ProfileVCFrame: CGRect = (ProfileVC?.view.frame)!
-        ProfileVCFrame.origin.x = self.view.frame.width
-        ProfileVC?.view.frame = ProfileVCFrame
-        
+        var cameraVCFrame: CGRect = (cameraVC?.view.frame)!
+        cameraVCFrame.origin.x = self.view.frame.width
+        cameraVC?.view.frame = cameraVCFrame
         self.scrollView.contentSize = CGSize(width: self.view.frame.width * 2, height: self.view.frame.height)
         
     }
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        
-        do {
-            try Auth.auth().signOut()
-            dismiss(animated: true, completion: nil )
-            }   catch {
-            print("There was a problem logging out")
-        
-            
-        }
-   
-    }
+
     
 }
- 
