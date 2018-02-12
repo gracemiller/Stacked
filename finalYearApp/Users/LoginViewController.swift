@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
 
     //LOGIN IN
     
-
-    
     @IBAction func loginButton(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
@@ -37,13 +35,13 @@ class LoginViewController: UIViewController {
     
     
     func presentLoggedInScreen() {
-        
+
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let LoggedInViewController: LoggedInViewController = storyboard.instantiateViewController(withIdentifier: "LoggedInVC") as! LoggedInViewController
-        
+
         self.present(LoggedInViewController, animated: true, completion: nil)
-        
-        
+
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

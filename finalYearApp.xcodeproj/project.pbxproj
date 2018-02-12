@@ -10,17 +10,23 @@
 		01464C2914785CB7FF009DC8 /* Pods_finalYearApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8016739C17AA56DC054197F /* Pods_finalYearApp.framework */; };
 		3F2FE75A202B025B0072E102 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE759202B025B0072E102 /* UIViewExtension.swift */; };
 		3F2FE75C202B04340072E102 /* ColourConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE75B202B04340072E102 /* ColourConstants.swift */; };
+		3F30C8C52031A62500ED69BB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8C32031A62500ED69BB /* TableViewCell.swift */; };
+		3F30C8C62031A62500ED69BB /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F30C8C42031A62500ED69BB /* TableViewCell.xib */; };
 		3F3925662020D9860028580A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3925652020D9860028580A /* ProfileViewController.swift */; };
-		3F39256820210F420028580A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39256720210F420028580A /* LaunchViewController.swift */; };
+		3F39256820210F420028580A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39256720210F420028580A /* AppManager.swift */; };
 		3F39256A2024784A0028580A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3925692024784A0028580A /* LoginViewController.swift */; };
 		3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */; };
+		3F70F1A320307E3C00472785 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70F1A220307E3C00472785 /* DemoViewController.swift */; };
+		3F70F1A520307E4500472785 /* Demo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70F1A420307E4500472785 /* Demo1ViewController.swift */; };
+		3F70F1A720307E4F00472785 /* Demo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70F1A620307E4F00472785 /* Demo2ViewController.swift */; };
+		3F70F1AB2030821900472785 /* DemoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70F1AA2030821900472785 /* DemoPageViewController.swift */; };
+		3FBC0F6A202F3E69002F4664 /* AppContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC0F69202F3E69002F4664 /* AppContainerViewController.swift */; };
 		3FBC8CAA201F311E0082F993 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC8CA9201F311E0082F993 /* CameraViewController.swift */; };
 		3FD23631201A32D600E20854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD23630201A32D600E20854 /* AppDelegate.swift */; };
 		3FD23636201A32D600E20854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23634201A32D600E20854 /* Main.storyboard */; };
 		3FD23638201A32D600E20854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23637201A32D600E20854 /* Assets.xcassets */; };
 		3FD2363B201A32D600E20854 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23639201A32D600E20854 /* LaunchScreen.storyboard */; };
 		3FD23643201A33A600E20854 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23642201A33A600E20854 /* GoogleService-Info.plist */; };
-		3FEA303320248FF8008C1D24 /* UploadImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA303220248FF8008C1D24 /* UploadImageManager.swift */; };
 		3FEA303520249076008C1D24 /* PostStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA303420249076008C1D24 /* PostStorage.swift */; };
 		3FEA30372028BAD4008C1D24 /* CreateNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,10 +34,17 @@
 /* Begin PBXFileReference section */
 		3F2FE759202B025B0072E102 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3F2FE75B202B04340072E102 /* ColourConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourConstants.swift; sourceTree = "<group>"; };
+		3F30C8C32031A62500ED69BB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3F30C8C42031A62500ED69BB /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3F3925652020D9860028580A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3F39256720210F420028580A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		3F39256720210F420028580A /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		3F3925692024784A0028580A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoggedInViewController.swift; path = "/Users/Student/Documents/Grad Project/finalYearApp/finalYearApp/LoggedInViewController.swift"; sourceTree = "<absolute>"; };
+		3F70F1A220307E3C00472785 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		3F70F1A420307E4500472785 /* Demo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewController.swift; sourceTree = "<group>"; };
+		3F70F1A620307E4F00472785 /* Demo2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo2ViewController.swift; sourceTree = "<group>"; };
+		3F70F1AA2030821900472785 /* DemoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPageViewController.swift; sourceTree = "<group>"; };
+		3FBC0F69202F3E69002F4664 /* AppContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainerViewController.swift; sourceTree = "<group>"; };
 		3FBC8CA9201F311E0082F993 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		3FD2362D201A32D600E20854 /* finalYearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalYearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD23630201A32D600E20854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +53,6 @@
 		3FD2363A201A32D600E20854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD2363C201A32D600E20854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD23642201A33A600E20854 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3FEA303220248FF8008C1D24 /* UploadImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageManager.swift; sourceTree = "<group>"; };
 		3FEA303420249076008C1D24 /* PostStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStorage.swift; sourceTree = "<group>"; };
 		3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserViewController.swift; sourceTree = "<group>"; };
 		7A49D4354D535886B146CE99 /* Pods-finalYearApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalYearApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-finalYearApp/Pods-finalYearApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F70F1A920307E6200472785 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3F70F1A220307E3C00472785 /* DemoViewController.swift */,
+				3F70F1A420307E4500472785 /* Demo1ViewController.swift */,
+				3F70F1A620307E4F00472785 /* Demo2ViewController.swift */,
+				3F70F1AA2030821900472785 /* DemoPageViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		3FBC0F6C202F44C4002F4664 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F2FE75B202B04340072E102 /* ColourConstants.swift */,
+				3F2FE759202B025B0072E102 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3FBC0F6D202F44E0002F4664 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				3FBC0F69202F3E69002F4664 /* AppContainerViewController.swift */,
+				3F39256720210F420028580A /* AppManager.swift */,
+				3F3925692024784A0028580A /* LoginViewController.swift */,
+				3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
 		3FD23624201A32D600E20854 = {
 			isa = PBXGroup;
 			children = (
@@ -81,18 +124,17 @@
 		3FD2362F201A32D600E20854 /* finalYearApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */,
 				3FD23630201A32D600E20854 /* AppDelegate.swift */,
-				3F39256720210F420028580A /* LaunchViewController.swift */,
+				3FBC0F6D202F44E0002F4664 /* Users */,
+				3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */,
 				3F3925652020D9860028580A /* ProfileViewController.swift */,
-				3F3925692024784A0028580A /* LoginViewController.swift */,
-				3F2FE75B202B04340072E102 /* ColourConstants.swift */,
-				3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */,
-				3FEA303220248FF8008C1D24 /* UploadImageManager.swift */,
+				3F30C8C32031A62500ED69BB /* TableViewCell.swift */,
+				3F30C8C42031A62500ED69BB /* TableViewCell.xib */,
 				3FEA303420249076008C1D24 /* PostStorage.swift */,
 				3FBC8CA9201F311E0082F993 /* CameraViewController.swift */,
-				3F2FE759202B025B0072E102 /* UIViewExtension.swift */,
+				3F70F1A920307E6200472785 /* Demo */,
 				3FD23634201A32D600E20854 /* Main.storyboard */,
+				3FBC0F6C202F44C4002F4664 /* Extensions */,
 				3FD23637201A32D600E20854 /* Assets.xcassets */,
 				3FD23639201A32D600E20854 /* LaunchScreen.storyboard */,
 				3FD23642201A33A600E20854 /* GoogleService-Info.plist */,
@@ -181,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD2363B201A32D600E20854 /* LaunchScreen.storyboard in Resources */,
+				3F30C8C62031A62500ED69BB /* TableViewCell.xib in Resources */,
 				3FD23643201A33A600E20854 /* GoogleService-Info.plist in Resources */,
 				3FD23638201A32D600E20854 /* Assets.xcassets in Resources */,
 				3FD23636201A32D600E20854 /* Main.storyboard in Resources */,
@@ -260,13 +303,18 @@
 				3F2FE75A202B025B0072E102 /* UIViewExtension.swift in Sources */,
 				3FEA303520249076008C1D24 /* PostStorage.swift in Sources */,
 				3F3925662020D9860028580A /* ProfileViewController.swift in Sources */,
-				3FEA303320248FF8008C1D24 /* UploadImageManager.swift in Sources */,
+				3F70F1AB2030821900472785 /* DemoPageViewController.swift in Sources */,
 				3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */,
 				3FBC8CAA201F311E0082F993 /* CameraViewController.swift in Sources */,
+				3F70F1A520307E4500472785 /* Demo1ViewController.swift in Sources */,
+				3F70F1A320307E3C00472785 /* DemoViewController.swift in Sources */,
 				3F39256A2024784A0028580A /* LoginViewController.swift in Sources */,
 				3FEA30372028BAD4008C1D24 /* CreateNewUserViewController.swift in Sources */,
-				3F39256820210F420028580A /* LaunchViewController.swift in Sources */,
+				3F70F1A720307E4F00472785 /* Demo2ViewController.swift in Sources */,
+				3F39256820210F420028580A /* AppManager.swift in Sources */,
+				3F30C8C52031A62500ED69BB /* TableViewCell.swift in Sources */,
 				3FD23631201A32D600E20854 /* AppDelegate.swift in Sources */,
+				3FBC0F6A202F3E69002F4664 /* AppContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

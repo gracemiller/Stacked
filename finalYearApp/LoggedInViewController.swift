@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class LoggedInViewController: UIViewController {
 
@@ -24,6 +26,10 @@ class LoggedInViewController: UIViewController {
         cameraVC?.view.frame = cameraVCFrame
         self.scrollView.contentSize = CGSize(width: self.view.frame.width * 2, height: self.view.frame.height)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        AppManager.shared.logout()
     }
 
     
