@@ -398,39 +398,49 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
             </objects>
             <point key="canvasLocation" x="1055" y="1872"/>
         </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="n7B-BF-dY5">
+        <!--Custom Camera View Controller-->
+        <scene sceneID="Azy-4u-TuL">
             <objects>
-                <viewController storyboardIdentifier="cameraVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kgr-ru-DgZ" customClass="CameraViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zmu-LT-RhX">
+                <viewController storyboardIdentifier="cameraVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gDH-Hq-yX3" customClass="CustomCameraViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uSo-0F-Mk8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fA1-2H-gm9">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfS-a1-GEc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.75" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="0.14641874368888891" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Zu6-sG-KYB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UEh-uB-YUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="994"/>
+        </scene>
+        <!--Image Preview View Controller-->
+        <scene sceneID="alp-4Q-UmS">
+            <objects>
+                <viewController storyboardIdentifier="previewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Du-aw-vvQ" customClass="ImagePreviewViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pKg-wg-KUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDW-TX-N9m" customClass="image" customModule="finalYearApp" customModuleProvider="target">
+                                <rect key="frame" x="67" y="222" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="top" secondItem="zmu-LT-RhX" secondAttribute="top" id="4pL-H1-9eN"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="trailing" secondItem="y1Q-U1-K2n" secondAttribute="trailing" id="GGn-E9-CKM"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="top" secondItem="zmu-LT-RhX" secondAttribute="top" id="Hsw-63-F8t"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="bottom" secondItem="y1Q-U1-K2n" secondAttribute="bottom" id="Oq9-2W-0bf"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="leading" secondItem="y1Q-U1-K2n" secondAttribute="leading" id="QM1-nh-1on"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="trailing" secondItem="y1Q-U1-K2n" secondAttribute="trailing" id="TPa-It-zCT"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="leading" secondItem="y1Q-U1-K2n" secondAttribute="leading" id="gOb-bx-pAd"/>
-                            <constraint firstItem="fA1-2H-gm9" firstAttribute="bottom" secondItem="y1Q-U1-K2n" secondAttribute="bottom" id="ihD-tE-Nmm"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="y1Q-U1-K2n"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Lsp-Ol-5oI"/>
                     </view>
-                    <connections>
-                        <outlet property="photoImageView" destination="fA1-2H-gm9" id="plN-PM-7JH"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aic-OX-gEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6DY-eD-Mfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="995.35232383808102"/>
+            <point key="canvasLocation" x="2201" y="994"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="671-RX-iVV">
@@ -457,23 +467,23 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5La-PJ-mFk">
-                                <rect key="frame" x="0.0" y="182" width="375" height="485"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y2K-xf-Pl3">
+                                <rect key="frame" x="0.0" y="161" width="375" height="462"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Icc-7O-KU2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SJl-BL-o7K">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Icc-7O-KU2" id="ak6-Hl-Mop">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJl-BL-o7K" id="sU2-hZ-cQq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="FLD-6v-sOQ" id="zYl-hZ-nGS"/>
-                                    <outlet property="delegate" destination="FLD-6v-sOQ" id="IIN-ZG-Usi"/>
+                                    <outlet property="dataSource" destination="FLD-6v-sOQ" id="5zu-hu-ttp"/>
+                                    <outlet property="delegate" destination="FLD-6v-sOQ" id="v5r-IB-T3Z"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -482,6 +492,9 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="y2K-xf-Pl3" id="uKD-yb-qay"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cZ-aW-NJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

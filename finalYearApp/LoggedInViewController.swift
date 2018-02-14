@@ -6,8 +6,12 @@ class LoggedInViewController: UIViewController {
 
     @IBOutlet var scrollView: UIScrollView!
     
+    var cameraVC: CustomCameraViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //scrollView.delegate = self
         
         let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController!
         self.addChildViewController(profileVC!)
@@ -15,7 +19,7 @@ class LoggedInViewController: UIViewController {
         profileVC?.didMove(toParentViewController: self)
         profileVC?.view.frame = scrollView.bounds
         
-        let cameraVC = self.storyboard?.instantiateViewController(withIdentifier: "cameraVC") as! CameraViewController!
+        cameraVC = self.storyboard?.instantiateViewController(withIdentifier: "cameraVC") as! CustomCameraViewController!
         self.addChildViewController(cameraVC!)
         self.scrollView.addSubview((cameraVC!.view))
         cameraVC?.didMove(toParentViewController: self)
@@ -27,10 +31,19 @@ class LoggedInViewController: UIViewController {
         self.scrollView.contentSize = CGSize(width: self.view.frame.width * 2, height: self.view.frame.height)
         
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        AppManager.shared.logout()
-    }
 
     
 }
+
+
+//extension LoggedInViewController: UIScrollViewDelegate {
+//
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let page = scrollView.contentOffset.x / scrollView.frame.size.width;
+//        if page == 1 {
+//        cameraVC.captureSession
+//        }
+//    }
+//
+//}
+

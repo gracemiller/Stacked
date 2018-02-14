@@ -1,27 +1,32 @@
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var tableView:UITableView!
+    var ref: DatabaseReference!
+    var postList = [Post]()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var posts: [Dictionary<String, Any>] = [
         [
-            "image ": "Screenshot",
+            "image": "Snapshot",
             "exercise" : "Back-Squat",
             "weights": "40",
             "sets": "4",
             "reps": "6"
         ],
         [
-            "image ": "Screenshot",
+            "image": "Screenshot",
             "exercise" : "Back-Squat",
             "weights": "45",
             "sets": "4",
             "reps": "6"
         ],
         [
-            "image ": "Screenshot",
+            "image": "Screenshot",
             "exercise" : "Back-Squat",
             "weights": "60",
             "sets": "4",
@@ -29,19 +34,36 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ]
     ]
     
-    let cellIndentifier: String = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
+        ref = Database.database().reference()
+        fecthUsers()
         
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "cell")
+//        nameLabel.text = animalObject?.name
+//        descriptionTextView.text = animalObject?.description
+//        //Creates URL for images
+//        let url = URL(string: (animalObject?.picture)!)
+//        //Calls data function and passes the URL of the image which returns, data, response and error
+//        getDataFromUrl(url: url!) { data, response, error in
+//            //Set varible for data
+//            guard let data = data, error == nil else { return }
+//            //Gets to main thread which handles UI
+//            DispatchQueue.main.async {
+//                //Sets image based on data returned
+//                self.imageView.image = UIImage(data: data)!
+//            }
+//        }
+//    }
+        
+        
+        let nib = UINib(nibName: "CustomCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "Cell")
 
-        
+    }
+    
+    func fecthUsers(){
         
     }
     
@@ -58,19 +80,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let Cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
         
         let character = posts[indexPath.row]
         
-        cell.exerciseLabel.text = character["exercise"] as? String
-        cell.weightsLabel.text = character["weights"] as? String
-        cell.setsLabel.text = character["sets"] as? String
-        cell.repsLabel.text = character["reps"] as? String
-        cell.screenshotImage.image = character["image"] as? UIImage
+        Cell.exerciseLabel.text = character["exercise"] as? String
+        Cell.weightsLabel.text = character["weights"] as? String
+        Cell.setsLabel.text = character["sets"] as? String
+        Cell.repsLabel.text = character["reps"] as? String
+        Cell.screenShotImage.image = character["image"] as? UIImage
         
-        cell.selectionStyle = .none
+        Cell.selectionStyle = .none
         
-        return cell
+        return Cell
     }
     
     @IBAction func logOutButton(_ sender: Any) {
