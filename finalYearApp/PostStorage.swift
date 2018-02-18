@@ -81,47 +81,5 @@
 ////            }
 ////        }
 ////    }
-////    func GetAllUserPhotos(){
-////        let userPhotosRef = self.ref.child("Photos").child(self.userID)
-////        userPhotosRef.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-////            if let photoURLCollection = snapshot.value as? NSDictionary{
-////                self.photosCollection.removeAll()
-////                for photo in photoURLCollection {
-////                    let newPhoto = PhotoCollection()
-////                    newPhoto.photoKey = photo.key as! String
-////                    newPhoto.photoUrl = (photo.value as? String)!
-////                    self.photosCollection.append(newPhoto)
-////                }
-////                self.collectionView?.reloadData()
-////            }
-////        }
-////    }
-////
-////    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-////        dismiss(animated: true, completion: nil)
-////        return
-////    }
-////
-////    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-////
-////        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
-////            let imageData = UIImageJPEGRepresentation(originalImage, 0.8){
-////            UploadImageToFirebaseStorage(data: imageData)
-////        }
-////        dismiss(animated: true, completion: nil)
-////    }
-////}
-////
-////
-////
-////    func presentCameraViewController() {
-////
-////        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-////        let CameraViewController: CameraViewController = storyboard.instantiateViewController(withIdentifier: "CameraVC") as! CameraViewController
-////
-////        self.present(CameraViewController, animated: true, completion: nil)
-////
-////
-////    }
-////
+
 

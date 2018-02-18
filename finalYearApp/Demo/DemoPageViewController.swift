@@ -5,9 +5,9 @@ class DemoPageViewController: UIPageViewController, UIPageViewControllerDataSour
     lazy var subViewControllers:[UIViewController] = {
         
         return [
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demoVC") as! DemoViewController,
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demo1VC") as! Demo1ViewController,
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demo2VC") as! Demo2ViewController
+//            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demoVC") as! DemoViewController,
+//            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demo1VC") as! Demo1ViewController,
+//            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "demo2VC") as! Demo2ViewController
             
         ]
     }()

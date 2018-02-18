@@ -5,15 +5,20 @@ class CapturedImageView: UIView {
     
     lazy var cancelButton: UIButton = {
         let cancel = UIButton()
-        cancel.setTitle("Cancel", for: .normal)
-        cancel.setTitleColor(.red, for: .normal)
+        cancel.setImage(#imageLiteral(resourceName: "Cancel"), for: .normal)
+        //cancel.layer.masksToBounds = true
+        cancel.backgroundColor = .clear
+        cancel.frame.size = CGSize(width: 0.5, height: 0.5)
+        cancel.frame.origin = CGPoint(x: 0, y: frame.midY-200)
         return cancel
     }()
     
     lazy var saveButton: UIButton = {
         let save = UIButton()
-        save.setTitle("Save", for: .normal)
-        save.setTitleColor(.green, for: .normal)
+        save.setImage(#imageLiteral(resourceName: "save"), for: .normal)
+        //save.frame.size = CGSize(width: 0.5, height: 0.5)
+        //save.center = CGPoint(x:320.0, y: 480.0)
+        save.frame = CGRect(x: 320, y: 480, width: 35, height: 10);
         return save
     }()
     

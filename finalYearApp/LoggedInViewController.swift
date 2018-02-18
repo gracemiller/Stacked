@@ -11,8 +11,6 @@ class LoggedInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //scrollView.delegate = self
-        
         let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController!
         self.addChildViewController(profileVC!)
         self.scrollView.addSubview((profileVC!.view))
@@ -34,16 +32,4 @@ class LoggedInViewController: UIViewController {
 
     
 }
-
-
-//extension LoggedInViewController: UIScrollViewDelegate {
-//
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        let page = scrollView.contentOffset.x / scrollView.frame.size.width;
-//        if page == 1 {
-//        cameraVC.captureSession
-//        }
-//    }
-//
-//}
 

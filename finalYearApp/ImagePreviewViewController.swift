@@ -1,18 +1,21 @@
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
 class ImagePreviewViewController: UIViewController {
     
+    let ref = Database.database().reference()
     let photoPreview = CapturedImageView()
     
     var image: UIImage!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         view.addSubview(photoPreview)
         photoPreview.cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-        
         photoPreview.saveButton.addTarget(self, action: #selector(save),for: .touchUpInside)
-        
         photoPreview.imagePreviewView.image = image
     }
     
@@ -22,7 +25,7 @@ class ImagePreviewViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     @objc func cancel() {
@@ -30,9 +33,32 @@ class ImagePreviewViewController: UIViewController {
     }
     
     @objc func save() {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        dismiss(animated: true, completion: nil)
+        if image != nil {
+            let newPost = Post(image: image)
+            newPost.save()
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        //dismiss(animated: true, completion: nil)
+
     }
+    
+    
+    
+//    func updateDatabase(post: UIImage) {
+//        let uuid = "Grace-Miller"
+//        let userRef = ref.child(uuid)
+//
+//        let dict = [
+//            "reps": String.self,
+//            "weights": String.self,
+//            "sets": String.self,
+//            "screenshot": #imageLiteral(resourceName: "Screenshot")
+//            ] as [String : Any]
+//
+//        userRef.setValue(dict)
+//    }
     
 }
 

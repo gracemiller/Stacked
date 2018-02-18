@@ -3,10 +3,7 @@ import AVFoundation
 
 class CustomCameraViewController: UIViewController {
     
-    var frame: CGRect = UIScreen.main.bounds
-//    screenWidth = screenSize.width;
-//    screenHeight = screenSize.height;
-    
+    var frame: CGRect = UIScreen.main.bounds    
     
     lazy var takePhotoButton: UIButton = {
         let button = UIButton()
@@ -16,6 +13,16 @@ class CustomCameraViewController: UIViewController {
         button.layer.masksToBounds = true
         button.frame.size = CGSize(width: 100, height: 100)
         button.frame.origin = CGPoint(x: frame.midX-50, y: frame.midY+200)
+        return button
+    }()
+    
+    lazy var addARDemo: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "Demo"), for: .normal)
+        button.backgroundColor = .clear
+        //button.layer.masksToBounds = true
+        //button.frame.size = CGSize(width: 20, height: 20)
+        //button.frame.origin = CGPoint(x: frame.midX-50, y: frame.midY+200)
         return button
     }()
     
@@ -39,9 +46,10 @@ class CustomCameraViewController: UIViewController {
         setUpCaptureSessionInput(position: .back)
         setupPreviewLayer()
         setupTakePhotoButton()
+        setupAddARDemo()
         startRunningCaptureSession()
-        takePhotoButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside
-        )
+        takePhotoButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
+        addARDemo.addTarget(self, action: #selector(ARDemo), for: .touchUpInside)
         
         // Here we used dot notation to implement the handle tap function, to the CameraViewController, we created in the extension at the bottom.
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CustomCameraViewController.handleTap(_:)))
@@ -49,21 +57,13 @@ class CustomCameraViewController: UIViewController {
         tapGestureRecognizer.numberOfTapsRequired = 2
         view.addGestureRecognizer(tapGestureRecognizer)
     }
-    
-    //MARK:- Functions
+
     
     private func setupTakePhotoButton() {
         view.addSubview(takePhotoButton)
-        takePhotoButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            takePhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            takePhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            takePhotoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            takePhotoButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15)
-//            ])
+        //takePhotoButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    // This function sets up a switch to change the camera in use depending on current position when called.
     private func setUpCaptureSessionInput(position: AVCaptureDevice.Position) {
         switch position {
         case .back:
@@ -81,6 +81,25 @@ class CustomCameraViewController: UIViewController {
     @objc func takePhoto(){
         let settings = AVCapturePhotoSettings()
         photoOutput?.capturePhoto(with: settings, delegate: self as AVCapturePhotoCaptureDelegate)
+    }
+    
+    @objc func ARDemo(){
+        presentARDemoSceneView()
+    }
+    
+    func presentARDemoSceneView() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ARDemoViewController: ARDemoViewController = storyboard.instantiateViewController(withIdentifier: "ARDemoVC") as! ARDemoViewController
+        
+        self.present(ARDemoViewController, animated: true, completion: nil)
+    }
+    
+    private func setupAddARDemo(){
+        view.addSubview(addARDemo)
+        addARDemo.translatesAutoresizingMaskIntoConstraints = false
+        addARDemo.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        addARDemo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
     
     // This function sets up the capture session as well as the photo ouput instance and its settings.
@@ -106,7 +125,6 @@ class CustomCameraViewController: UIViewController {
         }
     }
     
-    // This function allows you to remove the current camera input in use and to set and enable a new camera input.
     private func setupInputOutput(){
         captureSession.beginConfiguration()
         if let currentInput = captureSession.inputs.first {
@@ -131,7 +149,6 @@ class CustomCameraViewController: UIViewController {
         self.view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
     }
     
-    // Starts running the capture session after you set up the view.
     private func startRunningCaptureSession(){
         captureSession.startRunning()
     }

@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         
         ref = Database.database().reference()
         fecthUsers()
@@ -60,6 +61,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let nib = UINib(nibName: "CustomCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+
+    }
+    
+    func setupNavBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
 
     }
     
@@ -106,3 +114,4 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
 }
+
