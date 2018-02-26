@@ -161,10 +161,6 @@ class ARDemoViewController: UIViewController, ARSCNViewDelegate {
         node.removeFromParentNode()
     }
     
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
 }
 
 protocol dropDownProtocol {
@@ -299,8 +295,8 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = dropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.blue
-        cell.textLabel?.textColor = UIColor.white 
+        cell.backgroundColor = UIColor.coral
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     
