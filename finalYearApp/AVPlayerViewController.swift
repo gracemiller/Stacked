@@ -1,17 +1,8 @@
 import Foundation
+import AVFoundation
 import UIKit
 
-class CapturedImageView: UIView {
-    
-    lazy var cancelButton: UIButton = {
-        let cancel = UIButton()
-        cancel.setImage(#imageLiteral(resourceName: "Cancel"), for: .normal)
-        //cancel.layer.masksToBounds = true
-        cancel.backgroundColor = .clear
-        cancel.frame.size = CGSize(width: 0.5, height: 0.5)
-        cancel.frame.origin = CGPoint(x: 0, y: frame.midY-200)
-        return cancel
-    }()
+class AVPlayerViewController: UIViewController {
     
     lazy var saveButton: UIButton = {
         let save = UIButton()
@@ -20,12 +11,6 @@ class CapturedImageView: UIView {
         //save.center = CGPoint(x:320.0, y: 480.0)
         save.frame = CGRect(x: 320, y: 480, width: 35, height: 10);
         return save
-    }()
-    
-    lazy var imagePreviewView: UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        return image
     }()
     
     lazy var headerView: UIView = {
@@ -67,28 +52,6 @@ class CapturedImageView: UIView {
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             headerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
             headerView.centerXAnchor.constraint(equalTo: centerXAnchor)
-            ])
-    }
-    
-    private func setupImagePreviewView(){
-        addSubview(imagePreviewView)
-        imagePreviewView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imagePreviewView.topAnchor.constraint(equalTo: topAnchor),
-            imagePreviewView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imagePreviewView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imagePreviewView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imagePreviewView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imagePreviewView.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
-    }
-    
-    private func setupCancelButton(){
-        addSubview(cancelButton)
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cancelButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
-            cancelButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
             ])
     }
     

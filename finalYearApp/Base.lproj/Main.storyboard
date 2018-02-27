@@ -481,55 +481,42 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
             </objects>
             <point key="canvasLocation" x="3309.5999999999999" y="983.65817091454278"/>
         </scene>
-        <!--Recorder View Controller-->
+        <!--Video Recorder View Controller-->
         <scene sceneID="dCY-PO-WlS">
             <objects>
-                <viewController storyboardIdentifier="recorderVC" id="bms-hX-nD3" customClass="RecorderViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="PwD-Bc-rnU">
+                <viewController storyboardIdentifier="recorderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bms-hX-nD3" customClass="VideoRecorderViewController" customModule="finalYearApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PwD-Bc-rnU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfs-AV-tXl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4o-1a-e2d">
-                                <rect key="frame" x="56" y="598" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-0e-3qb">
+                                <rect key="frame" x="137" y="538" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <state key="normal" image="Camer_Button"/>
                                 <connections>
-                                    <action selector="playAction" destination="bms-hX-nD3" eventType="touchUpInside" id="3Gw-mQ-rqX"/>
+                                    <action selector="capture:" destination="bms-hX-nD3" eventType="touchUpInside" id="2kf-Z6-K0z"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-OB-pUu">
-                                <rect key="frame" x="222" y="598" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Record"/>
-                                <connections>
-                                    <action selector="recordStartAction" destination="bms-hX-nD3" eventType="touchUpInside" id="utw-F9-2bE"/>
-                                    <action selector="recordStopAction:" destination="bms-hX-nD3" eventType="touchUpInside" id="aZ2-7X-dc6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTs-xZ-NYF">
-                                <rect key="frame" x="135" y="178" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="recording... "/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R56-JY-GM0"/>
                     </view>
                     <connections>
-                        <outlet property="playButton" destination="p4o-1a-e2d" id="tLP-S7-8rj"/>
-                        <outlet property="previewContainer" destination="mfs-AV-tXl" id="hMu-cN-hNo"/>
-                        <outlet property="recordButton" destination="1Pb-OB-pUu" id="TbC-eW-Uxd"/>
-                        <outlet property="recordingInfoView" destination="eTs-xZ-NYF" id="0sV-F0-ud0"/>
+                        <outlet property="cameraButton" destination="zV0-0e-3qb" id="Rku-js-RH7"/>
+                        <segue destination="Tuu-Os-4gY" kind="presentation" identifier="ShowAVPlayer" id="LOX-RU-jg0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8x-y4-p18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1812" y="303.59820089955025"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="LoF-6a-Ng7">
+            <objects>
+                <avPlayerViewController restorationIdentifier="AVPlayerViewController" videoGravity="AVLayerVideoGravityResizeAspect" id="Tuu-Os-4gY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmj-FJ-n9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="304"/>
         </scene>
         <!--My Videos-->
         <scene sceneID="671-RX-iVV">
@@ -639,6 +626,7 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
     </scenes>
     <resources>
         <image name="AR_man" width="720" height="1154"/>
+        <image name="Camer_Button" width="600" height="600"/>
         <image name="Screenshot" width="1094" height="1932"/>
     </resources>
     <inferredMetricsTieBreakers>

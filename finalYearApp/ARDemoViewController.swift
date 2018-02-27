@@ -36,14 +36,20 @@ class ARDemoViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.antialiasingMode = .multisampling4X
-        
-        let scene = SCNScene()
-        sceneView.scene = scene
+    
         
         addTapGestureToSceneView()
         //addBackSquat(x: 100, y: -100.0, z: 0)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let scene = SCNScene()
+        sceneView.scene = scene
+        
+    }
+    
     
     func exerciseOptions() {
         

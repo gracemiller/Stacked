@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01464C2914785CB7FF009DC8 /* Pods_finalYearApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8016739C17AA56DC054197F /* Pods_finalYearApp.framework */; };
+		3F2F0CD120458EE1004FFAD9 /* VideoRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F0CD020458EE1004FFAD9 /* VideoRecorderViewController.swift */; };
 		3F2FE75A202B025B0072E102 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE759202B025B0072E102 /* UIViewExtension.swift */; };
 		3F2FE75C202B04340072E102 /* ColourConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FE75B202B04340072E102 /* ColourConstants.swift */; };
 		3F30C8C820330F2500ED69BB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8C720330F2500ED69BB /* Post.swift */; };
@@ -15,13 +16,14 @@
 		3F30C8CC20332A3200ED69BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8CA20332A3200ED69BB /* CustomCell.swift */; };
 		3F30C8D2203344D800ED69BB /* CustomCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8D1203344D800ED69BB /* CustomCameraViewController.swift */; };
 		3F30C8D42033474500ED69BB /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8D32033474500ED69BB /* ImagePreviewViewController.swift */; };
-		3F30C8D62033481900ED69BB /* CapturedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8D52033481800ED69BB /* CapturedImageView.swift */; };
+		3F30C8D62033481900ED69BB /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30C8D52033481800ED69BB /* AVPlayerViewController.swift */; };
 		3F3925662020D9860028580A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3925652020D9860028580A /* ProfileViewController.swift */; };
 		3F39256820210F420028580A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39256720210F420028580A /* AppManager.swift */; };
 		3F39256A2024784A0028580A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3925692024784A0028580A /* LoginViewController.swift */; };
 		3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */; };
 		3F70F1AB2030821900472785 /* DemoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70F1AA2030821900472785 /* DemoPageViewController.swift */; };
 		3FBC0F6A202F3E69002F4664 /* AppContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC0F69202F3E69002F4664 /* AppContainerViewController.swift */; };
+		3FBF03012045AC8000BB7ED7 /* UIVIewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF03002045AC8000BB7ED7 /* UIVIewController+Extension.swift */; };
 		3FD23631201A32D600E20854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD23630201A32D600E20854 /* AppDelegate.swift */; };
 		3FD23636201A32D600E20854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23634201A32D600E20854 /* Main.storyboard */; };
 		3FD23638201A32D600E20854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23637201A32D600E20854 /* Assets.xcassets */; };
@@ -29,13 +31,12 @@
 		3FD23643201A33A600E20854 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD23642201A33A600E20854 /* GoogleService-Info.plist */; };
 		3FD9D9BD2036EED0006B0D99 /* ARDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9D9BC2036EED0006B0D99 /* ARDemoViewController.swift */; };
 		3FD9D9C12036EFD8006B0D99 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD9D9C02036EFD8006B0D99 /* Models.scnassets */; };
-		3FDD644F203AF55D0031A19D /* CaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD644E203AF55C0031A19D /* CaptureService.swift */; };
-		3FDD6457203B351E0031A19D /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD6456203B351D0031A19D /* RecorderViewController.swift */; };
 		3FEA303520249076008C1D24 /* PostStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA303420249076008C1D24 /* PostStorage.swift */; };
 		3FEA30372028BAD4008C1D24 /* CreateNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F2F0CD020458EE1004FFAD9 /* VideoRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecorderViewController.swift; sourceTree = "<group>"; };
 		3F2FE759202B025B0072E102 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3F2FE75B202B04340072E102 /* ColourConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourConstants.swift; sourceTree = "<group>"; };
 		3F30C8C720330F2500ED69BB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -43,13 +44,14 @@
 		3F30C8CA20332A3200ED69BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		3F30C8D1203344D800ED69BB /* CustomCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraViewController.swift; sourceTree = "<group>"; };
 		3F30C8D32033474500ED69BB /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
-		3F30C8D52033481800ED69BB /* CapturedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturedImageView.swift; sourceTree = "<group>"; };
+		3F30C8D52033481800ED69BB /* AVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewController.swift; sourceTree = "<group>"; };
 		3F3925652020D9860028580A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3F39256720210F420028580A /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		3F3925692024784A0028580A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F6BC5C5201A3F2A00675F76 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoggedInViewController.swift; path = "/Users/Student/Documents/Grad Project/finalYearApp/finalYearApp/LoggedInViewController.swift"; sourceTree = "<absolute>"; };
 		3F70F1AA2030821900472785 /* DemoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPageViewController.swift; sourceTree = "<group>"; };
 		3FBC0F69202F3E69002F4664 /* AppContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainerViewController.swift; sourceTree = "<group>"; };
+		3FBF03002045AC8000BB7ED7 /* UIVIewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Extension.swift"; sourceTree = "<group>"; };
 		3FD2362D201A32D600E20854 /* finalYearApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalYearApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD23630201A32D600E20854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD23635201A32D600E20854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,8 +61,6 @@
 		3FD23642201A33A600E20854 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FD9D9BC2036EED0006B0D99 /* ARDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDemoViewController.swift; sourceTree = "<group>"; };
 		3FD9D9C02036EFD8006B0D99 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
-		3FDD644E203AF55C0031A19D /* CaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureService.swift; sourceTree = "<group>"; };
-		3FDD6456203B351D0031A19D /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		3FEA303420249076008C1D24 /* PostStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStorage.swift; sourceTree = "<group>"; };
 		3FEA30362028BAD4008C1D24 /* CreateNewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserViewController.swift; sourceTree = "<group>"; };
 		7A49D4354D535886B146CE99 /* Pods-finalYearApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalYearApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-finalYearApp/Pods-finalYearApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +91,7 @@
 		3FBC0F6C202F44C4002F4664 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3FBF03002045AC8000BB7ED7 /* UIVIewController+Extension.swift */,
 				3F2FE75B202B04340072E102 /* ColourConstants.swift */,
 				3F2FE759202B025B0072E102 /* UIViewExtension.swift */,
 			);
@@ -136,11 +137,10 @@
 				3FEA303420249076008C1D24 /* PostStorage.swift */,
 				3F30C8C720330F2500ED69BB /* Post.swift */,
 				3FD9D9BC2036EED0006B0D99 /* ARDemoViewController.swift */,
-				3F30C8D52033481800ED69BB /* CapturedImageView.swift */,
+				3F30C8D52033481800ED69BB /* AVPlayerViewController.swift */,
 				3F30C8D32033474500ED69BB /* ImagePreviewViewController.swift */,
 				3F30C8D1203344D800ED69BB /* CustomCameraViewController.swift */,
-				3FDD6456203B351D0031A19D /* RecorderViewController.swift */,
-				3FDD644E203AF55C0031A19D /* CaptureService.swift */,
+				3F2F0CD020458EE1004FFAD9 /* VideoRecorderViewController.swift */,
 				3F30C8CA20332A3200ED69BB /* CustomCell.swift */,
 				3F30C8C920332A3200ED69BB /* CustomCell.xib */,
 				3F70F1A920307E6200472785 /* Demo */,
@@ -312,8 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FDD6457203B351E0031A19D /* RecorderViewController.swift in Sources */,
-				3FDD644F203AF55D0031A19D /* CaptureService.swift in Sources */,
+				3F2F0CD120458EE1004FFAD9 /* VideoRecorderViewController.swift in Sources */,
 				3F30C8D2203344D800ED69BB /* CustomCameraViewController.swift in Sources */,
 				3F2FE75C202B04340072E102 /* ColourConstants.swift in Sources */,
 				3F2FE75A202B025B0072E102 /* UIViewExtension.swift in Sources */,
@@ -323,9 +322,10 @@
 				3F3925662020D9860028580A /* ProfileViewController.swift in Sources */,
 				3F70F1AB2030821900472785 /* DemoPageViewController.swift in Sources */,
 				3F6BC5C6201A3F2A00675F76 /* LoggedInViewController.swift in Sources */,
+				3FBF03012045AC8000BB7ED7 /* UIVIewController+Extension.swift in Sources */,
 				3F30C8C820330F2500ED69BB /* Post.swift in Sources */,
 				3F30C8D42033474500ED69BB /* ImagePreviewViewController.swift in Sources */,
-				3F30C8D62033481900ED69BB /* CapturedImageView.swift in Sources */,
+				3F30C8D62033481900ED69BB /* AVPlayerViewController.swift in Sources */,
 				3F39256A2024784A0028580A /* LoginViewController.swift in Sources */,
 				3FEA30372028BAD4008C1D24 /* CreateNewUserViewController.swift in Sources */,
 				3F39256820210F420028580A /* AppManager.swift in Sources */,
