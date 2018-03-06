@@ -435,7 +435,7 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEh-uB-YUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="984"/>
+            <point key="canvasLocation" x="2838" y="1842"/>
         </scene>
         <!--Demo View Controller-->
         <scene sceneID="aw6-Sg-LWq">
@@ -479,7 +479,7 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3309.5999999999999" y="983.65817091454278"/>
+            <point key="canvasLocation" x="4129" y="959"/>
         </scene>
         <!--Video Recorder View Controller-->
         <scene sceneID="dCY-PO-WlS">
@@ -508,15 +508,105 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8x-y4-p18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="303.59820089955025"/>
+            <point key="canvasLocation" x="2553" y="959"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="LoF-6a-Ng7">
             <objects>
-                <avPlayerViewController restorationIdentifier="AVPlayerViewController" videoGravity="AVLayerVideoGravityResizeAspect" id="Tuu-Os-4gY" sceneMemberID="viewController"/>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Tuu-Os-4gY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmj-FJ-n9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="304"/>
+            <point key="canvasLocation" x="3358" y="959"/>
+        </scene>
+        <!--Add Exercise-->
+        <scene sceneID="rkt-gR-lfv">
+            <objects>
+                <viewController storyboardIdentifier="newExerciseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rFK-51-xNY" customClass="newExerciseAdded" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5za-Z0-vGt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-bZ-edC">
+                                <rect key="frame" x="60" y="134" width="255" height="223"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="weights" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60kg" placeholder="Weights" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Jb-hX-X9N" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="21"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8" placeholder="Reps" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-o0-X3C" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="101" width="255" height="21"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" placeholder="Sets" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-F0-T4l" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="202" width="255" height="21"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvz-jD-hdS">
+                                <rect key="frame" x="60" y="373" width="255" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bpy-bZ-edC" firstAttribute="top" secondItem="ryf-8r-P05" secondAttribute="top" constant="70" id="9rX-Rw-42w"/>
+                            <constraint firstItem="ryf-8r-P05" firstAttribute="trailing" secondItem="bpy-bZ-edC" secondAttribute="trailing" constant="60" id="Bx5-0H-o9W"/>
+                            <constraint firstItem="ryf-8r-P05" firstAttribute="trailing" secondItem="Qvz-jD-hdS" secondAttribute="trailing" constant="60" id="IDr-ox-OIT"/>
+                            <constraint firstItem="bpy-bZ-edC" firstAttribute="leading" secondItem="ryf-8r-P05" secondAttribute="leading" constant="60" id="ZGj-cf-cF6"/>
+                            <constraint firstItem="Qvz-jD-hdS" firstAttribute="leading" secondItem="ryf-8r-P05" secondAttribute="leading" constant="60" id="iDO-bv-cAV"/>
+                            <constraint firstItem="ryf-8r-P05" firstAttribute="bottom" secondItem="Qvz-jD-hdS" secondAttribute="bottom" constant="220" id="uiS-UM-1Fe"/>
+                            <constraint firstItem="Qvz-jD-hdS" firstAttribute="centerX" secondItem="5za-Z0-vGt" secondAttribute="centerX" id="zN1-4O-EMU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ryf-8r-P05"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Exercise" id="8fw-fa-qzw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMa-Zh-mMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="305"/>
         </scene>
         <!--My Videos-->
         <scene sceneID="671-RX-iVV">
@@ -561,7 +651,14 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                         <viewLayoutGuide key="safeArea" id="5db-rX-EjK"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My Videos" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="gLg-SZ-EI8"/>
+                    <navigationItem key="navigationItem" title="My Videos" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="gLg-SZ-EI8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1AK-kM-Y3v">
+                            <connections>
+                                <action selector="addPost:" destination="FLD-6v-sOQ" id="IVJ-fP-PyZ"/>
+                                <segue destination="rFK-51-xNY" kind="show" id="7XH-Eq-eqM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="2B9-h3-uFv" id="BJg-dh-tlI"/>
@@ -578,7 +675,7 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1812" y="984"/>
+            <point key="canvasLocation" x="1804" y="994"/>
         </scene>
         <!--Logged In View Controller-->
         <scene sceneID="aKJ-m3-kCK">
@@ -621,7 +718,7 @@ Either at a Strength and Conditioning session or at the gym record yourself perf
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6D9-VT-rB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="994"/>
+            <point key="canvasLocation" x="886" y="854"/>
         </scene>
     </scenes>
     <resources>

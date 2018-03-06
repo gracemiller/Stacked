@@ -5,34 +5,37 @@ import FirebaseStorage
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     var ref: DatabaseReference!
     var postList = [Post]()
+    var databaseHandle: DatabaseHandle!
     
     @IBOutlet weak var tableView: UITableView!
     
-    var posts: [Dictionary<String, Any>] = [
-        [
-            "image": "Snapshot",
-            "exercise" : "Back-Squat",
-            "weights": "40",
-            "sets": "4",
-            "reps": "6"
-        ],
-        [
-            "image": "Screenshot",
-            "exercise" : "Back-Squat",
-            "weights": "45",
-            "sets": "4",
-            "reps": "6"
-        ],
-        [
-            "image": "Screenshot",
-            "exercise" : "Back-Squat",
-            "weights": "60",
-            "sets": "4",
-            "reps": "3"
-        ]
-    ]
+    var posts = [String]()
+//        [Dictionary<String, Any>] = [
+//        [
+//            "image": #imageLiteral(resourceName: "Screenshot"),
+//            "exercise" : "Back-Squat",
+//            "weights": "40",
+//            "sets": "4",
+//            "reps": "6"
+//        ],
+//        [
+//            "image": #imageLiteral(resourceName: "Screenshot"),
+//            "exercise" : "Back-Squat",
+//            "weights": "45",
+//            "sets": "4",
+//            "reps": "6"
+//        ],
+//        [
+//            "image": #imageLiteral(resourceName: "Screenshot"),
+//            "exercise" : "Back-Squat",
+//            "weights": "60",
+//            "sets": "4",
+//            "reps": "3"
+//        ]
+//    ]
     
     
     override func viewDidLoad() {
@@ -40,24 +43,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupNavBar()
         
         ref = Database.database().reference()
+        databaseHandle = ref?.child("Posts").observe(.childAdded, with: { (snapshot) in
+            
+            let post = snapshot.value as? String
+            if let actualPost = post {
+            self.posts.append(actualPost)
+            self.tableView.reloadData()
+            }
+        })
         fecthUsers()
-        
-//        nameLabel.text = animalObject?.name
-//        descriptionTextView.text = animalObject?.description
-//        //Creates URL for images
-//        let url = URL(string: (animalObject?.picture)!)
-//        //Calls data function and passes the URL of the image which returns, data, response and error
-//        getDataFromUrl(url: url!) { data, response, error in
-//            //Set varible for data
-//            guard let data = data, error == nil else { return }
-//            //Gets to main thread which handles UI
-//            DispatchQueue.main.async {
-//                //Sets image based on data returned
-//                self.imageView.image = UIImage(data: data)!
-//            }
-//        }
-//    }
-        
         
         let nib = UINib(nibName: "CustomCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
@@ -92,16 +86,53 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let character = posts[indexPath.row]
         
-        Cell.exerciseLabel.text = character["exercise"] as? String
-        Cell.weightsLabel.text = character["weights"] as? String
-        Cell.setsLabel.text = character["sets"] as? String
-        Cell.repsLabel.text = character["reps"] as? String
-        Cell.screenShotImage.image = character["image"] as? UIImage
+//        Cell.exerciseLabel.text = character["exercise"] as? String
+//        Cell.weightsLabel.text = character["weights"] as? String
+//        Cell.setsLabel.text = character["sets"] as? String
+//        Cell.repsLabel.text = character["reps"] as? String
+//        Cell.screenShotImage.image = character["image"] as? UIImage
         
         Cell.selectionStyle = .none
         
         return Cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard editingStyle == .delete else { return }
+            posts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+        }
+    
+    @IBAction func addPost(_ sender: Any) {
+        
+        ref?.child("Posts").childByAutoId().setValue("Please work for me Firebase")
+        
+        let alert = UIAlertController(title: "Add Exercise", message: nil, preferredStyle: .alert)
+        alert.addTextField { (exerciseTF) in
+        exerciseTF.placeholder = "Enter Exercise"
+        }
+        
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let exercise = alert.textFields?.first?.text else { return }
+            print(exercise)
+            //self.add(Post)
+        
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func add(_ Post: Dictionary<String, Any>) {
+        let index = 0
+        //postList.insert(Post, at: index)
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.insertRows(at: [indexPath], with: .left)
+    }
+    
     
     @IBAction func logOutButton(_ sender: Any) {
     
@@ -112,6 +143,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("There was a problem logging out")
             }
     }
-
+    
+    
 }
-

@@ -37,6 +37,9 @@ class LoggedInViewController: UIViewController {
     func calculateWidth() {
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(vcs.count), height: view.frame.height)
     }
+    
+//    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//    }
 
 }
 

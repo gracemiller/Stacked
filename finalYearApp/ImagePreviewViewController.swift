@@ -14,7 +14,6 @@ class ImagePreviewViewController: UIViewController {
         super.viewDidAppear(animated)
         
         view.addSubview(photoPreview)
-        photoPreview.cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         photoPreview.saveButton.addTarget(self, action: #selector(save),for: .touchUpInside)
         photoPreview.imagePreviewView.image = image
     }
@@ -28,9 +27,7 @@ class ImagePreviewViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    @objc func cancel() {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     @objc func save() {
         if image != nil {

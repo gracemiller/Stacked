@@ -6,8 +6,12 @@ import ARKit
 class ARDemoViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
+    let configuration = ARWorldTrackingConfiguration()
     
     var button = dropDownBtn()
+    
+    var cellButtonTapped: ((UITableViewCell) -> Void)?
+
     
     var nodeModel:SCNNode!
     let nodeName = "robot"
@@ -36,11 +40,25 @@ class ARDemoViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.antialiasingMode = .multisampling4X
+        sceneView.session.run(configuration)
     
         
-        addTapGestureToSceneView()
+        //addTapGestureToSceneView()
         //addBackSquat(x: 100, y: -100.0, z: 0)
         
+    }
+    
+    
+    @IBAction func ResetScene(_ sender: Any) {
+        resetSession()
+    }
+    
+    func resetSession() {
+        sceneView.session.pause()
+        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,56 +68,55 @@ class ARDemoViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    @objc func exerciseButton(sender: UIButton){
+        let cellButtonTapped = sender.tag
+            addObject()
+        }
+    }
     
-    func exerciseOptions() {
+    func addObject() {
         
         var objectArray = [SCNNode]()
         let squareNode = SCNNode(geometry: SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0.03))
         let coneNode = SCNNode(geometry: SCNCone(topRadius: 0, bottomRadius: 0.1, height: 0.2))
-    
+        let pyramidNode = SCNNode(geometry: SCNPyramid(width: 0.2, height: 0.2, length: 0.2))
+        let capsuleNode = SCNNode(geometry: SCNCapsule(capRadius: 0.1, height: 0.2))
+        let cylinderNode = SCNNode(geometry: SCNCylinder(radius: 0.2, height: 0.3))
+        
         objectArray.append(squareNode)
         objectArray.append(coneNode)
+        objectArray.append(pyramidNode)
+        objectArray.append(capsuleNode)
+        objectArray.append(capsuleNode)
+        objectArray.append(cylinderNode)
         
+        let colorArray: [UIColor] = [.red, .green, .blue, .yellow, .orange, .purple, .black]
         let pickedObject = objectArray[Int(arc4random_uniform(5))]
+        pickedObject.geometry?.firstMaterial?.diffuse.contents = colorArray[Int(arc4random_uniform(2))]
         pickedObject.geometry?.firstMaterial?.specular.contents = UIColor.white
         
-        //pickedObject.position = SCNVector3(x,y,z)
-        
-        sceneView.scene.rootNode.addChildNode(pickedObject)
+        //sceneView.scene.rootNode.addChildNode(pickedObject)
     }
     
-    @IBAction func ResetScene(_ sender: Any) {
-        resetSession()
-    }
+//    func addBackSquat(x: Float, y: Float, z: Float) {
+//        let modelScene = SCNScene(named:"Models.scnassets/backSquat.scn")!
+//        let modelNode = modelScene.rootNode.childNode(withName: "backSquat", recursively: true)
+//        //modelNode?.scale = SCNVector3(0.5, 0.5, 0.5)
+//        //modelNode?.position = SCNVector3Make(x, y, z)
+//
+//        sceneView.scene.rootNode.addChildNode(modelNode!)
+//
+//
+//        nodeModel =  modelScene.rootNode.childNode(
+//            withName: nodeName, recursively: true)
+//
+//    }
     
-    func resetSession() {
-        
-        sceneView.session.pause()
-        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
-            node.removeFromParentNode()
-        }
-        //sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-    }
-    
-    func addBackSquat(x: Float, y: Float, z: Float) {
-        let modelScene = SCNScene(named:"Models.scnassets/backSquat.scn")!
-        let modelNode = modelScene.rootNode.childNode(withName: "backSquat", recursively: true)
-        //modelNode?.scale = SCNVector3(0.5, 0.5, 0.5)
-        //modelNode?.position = SCNVector3Make(x, y, z)
-        
-        sceneView.scene.rootNode.addChildNode(modelNode!)
-        
-        
-        nodeModel =  modelScene.rootNode.childNode(
-            withName: nodeName, recursively: true)
-        
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
-        guard let hitResult = result.last else { return }
-        let hitTransform = hitResult.worldTransform
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let touch = touches.first else { return }
+//        let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
+//        guard let hitResult = result.last else { return }
+//        let hitTransform = hitResult.worldTransform
         //let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
         //createDemo(position: hitVector)
         
@@ -117,57 +134,57 @@ class ARDemoViewController: UIViewController, ARSCNViewDelegate {
 //            }
 //        }
         
-    }
+
     
 //    func createDemo(position: SCNVector3) {
 //        var
 //
 //
 //    }
-    
-    func getParent(_ nodeFound: SCNNode?) -> SCNNode? {
-        if let node = nodeFound {
-            if node.name == nodeName {
-                return node
-            } else if let parent = node.parent {
-                return getParent(parent)
-            }
-        }
-        return nil
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let configuration = ARWorldTrackingConfiguration()
-        sceneView.session.run(configuration)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        sceneView.session.pause()
-    }
-    
-    func addTapGestureToSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARDemoViewController.didTap))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let tapLocation = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLocation)
-        guard let node = hitTestResults.first?.node else {
-            let hitTestResultsWithFeaturePoints = sceneView.hitTest(tapLocation, types: .featurePoint)
-            
-            if let hitTestResultWithFeaturePoints = hitTestResultsWithFeaturePoints.first {
-                let translation = hitTestResultWithFeaturePoints.worldTransform.translation
-                addBackSquat(x: translation.x, y: translation.y, z: translation.z)
-                
-            }
-            return }
-        node.removeFromParentNode()
-    }
-    
-}
+//
+//    func getParent(_ nodeFound: SCNNode?) -> SCNNode? {
+//        if let node = nodeFound {
+//            if node.name == nodeName {
+//                return node
+//            } else if let parent = node.parent {
+//                return getParent(parent)
+//            }
+//        }
+//        return nil
+//    }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        let configuration = ARWorldTrackingConfiguration()
+//        sceneView.session.run(configuration)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        sceneView.session.pause()
+//    }
+//
+//    func addTapGestureToSceneView() {
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARDemoViewController.didTap))
+//        sceneView.addGestureRecognizer(tapGestureRecognizer)
+//    }
+//
+//    @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
+//        let tapLocation = recognizer.location(in: sceneView)
+//        let hitTestResults = sceneView.hitTest(tapLocation)
+//        guard let node = hitTestResults.first?.node else {
+//            let hitTestResultsWithFeaturePoints = sceneView.hitTest(tapLocation, types: .featurePoint)
+//
+//            if let hitTestResultWithFeaturePoints = hitTestResultsWithFeaturePoints.first {
+//                let translation = hitTestResultWithFeaturePoints.worldTransform.translation
+//                addBackSquat(x: translation.x, y: translation.y, z: translation.z)
+//
+//            }
+//            return }
+//        node.removeFromParentNode()
+//    }
+//
+//}
 
 protocol dropDownProtocol {
     func dropDownPressed(string : String)
@@ -178,6 +195,10 @@ class dropDownBtn: UIButton, dropDownProtocol {
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
         self.dismissDropDown()
+        
+        //addObject()
+
+//        add back squat
     }
     
     var dropView = dropDownView()
@@ -188,7 +209,7 @@ class dropDownBtn: UIButton, dropDownProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.orange
+        self.backgroundColor = UIColor.green
         
         dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 0))
         dropView.delegate = self
@@ -258,6 +279,8 @@ class dropDownBtn: UIButton, dropDownProtocol {
 
 class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     
+    var addObject = NSObject()
+    
     var dropDownOptions = [String]()
     
     var tableView = UITableView()
@@ -267,9 +290,8 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        tableView.backgroundColor = UIColor.white
-        self.backgroundColor = UIColor.white
-        
+        tableView.backgroundColor = UIColor.red
+        self.backgroundColor = UIColor.blue
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -301,8 +323,14 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = dropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.coral
+        cell.backgroundColor = UIColor.blue
         cell.textLabel?.textColor = UIColor.white
+        
+        
+//        cell.addObject = {
+//            self.view.addSubview(self.someotherView)
+//        }
+        
         return cell
     }
     
@@ -319,6 +347,7 @@ extension float4x4 {
         return float3(translation.x, translation.y, translation.z)
     }
 }
+
 
 
 
