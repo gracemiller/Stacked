@@ -11,5 +11,6 @@ target 'finalYearApp' do
     pod 'Firebase/Database'
     pod 'Firebase/Firestore'
     pod 'TextFieldEffects'
-
+    pod 'PickerView'
+    
 end

@@ -5,6 +5,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +23,16 @@ class LoginViewController: UIViewController {
         }
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-            
+            if let user = user {
+                print(user)
+                self.presentLoggedInScreen()
+            }
             if let firebaseError = error {
                 print(firebaseError.localizedDescription)
+                self.errorLabel.text = "Incorrect email/password"
                 return
             }
         })
-        
-        presentLoggedInScreen()
-        
     }
     
     

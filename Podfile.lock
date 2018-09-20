@@ -5,6 +5,7 @@ PODS:
   - BoringSSL/Implementation (9.2):
     - BoringSSL/Interface (= 9.2)
   - BoringSSL/Interface (9.2)
+  - CameraManager (4.0.1)
   - Firebase/Auth (4.8.1):
     - Firebase/Core
     - FirebaseAuth (= 4.4.2)
@@ -83,19 +84,23 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PickerView (0.3.3)
   - Protobuf (3.5.0)
   - TextFieldEffects (1.4.0)
 
 DEPENDENCIES:
+  - CameraManager
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
+  - PickerView
   - TextFieldEffects
 
 SPEC CHECKSUMS:
   BoringSSL: f3d6b8ce199b9c450a8cfc14895d07a2627fc232
+  CameraManager: 56b3516e8e22cfbf56f3f0401291561e1ad9b3d0
   Firebase: 2721056b8885eef90233b03f37be64358d35d262
   FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
   FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
@@ -112,9 +117,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PickerView: a6703d2f7cb1fafc8a3aef4af255a5acd320ddff
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: 689b6919f0cda49a9cad1a1c65c629892b20a43f
+PODFILE CHECKSUM: 67c379eef2e1f4a3bf8ff872882f13a0fd52f9a4
 
 COCOAPODS: 1.4.0

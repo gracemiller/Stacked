@@ -5,49 +5,44 @@ import FirebaseDatabase
 
 class Post: NSObject {
     
-    var exercise: String?
-    var weights: String?
-    var sets: String?
-    var reps: String?
-    var imageDownlaodURL: String?
-    private var image: UIImage!
+    var postID: String!
     
-    init(image: UIImage)
-         //exercise: String, weights: String, sets: String, reps: String)
-        {
-        self.image = image
-       // self.exercise = exercise
- 
+    var weights: Int!
+    var sets: Int!
+    var reps: Int!
+    var date: Date!
+    var videoURL: String?
+    var imageURL: String?
+    
+    var exercise: Exercise!
+    
+    init(snapshot: DataSnapshot) {
+        let dict = snapshot.value as! [String: Any]
+        postID = snapshot.key
+            
+        exercise = Exercise(snapshot: snapshot.childSnapshot(forPath: "exercise"))
+        reps = dict["reps"] as! Int
+        sets = dict["sets"] as! Int
+        weights = dict["weights"] as! Int
+        date = Date(timeIntervalSince1970: dict["date"] as! TimeInterval)
+        
+        if let videoURL = dict["video"] as? String {
+            self.videoURL = videoURL
+        }
+        
     }
-    
-    func save() {
-        //new datatbase ref
-        let newPostRef = Database.database().reference().child("photoPost").childByAutoId()
-        let newPostKey = newPostRef.key
-        
-        if let imageData = UIImageJPEGRepresentation(self.image, 0.6){
-            
-            //creates storage ref
-            let imageStorageReference = Storage.storage().reference().child("images")
-            let newImageRef = imageStorageReference.child(newPostKey)
-            
-            //save image to storage
-            newImageRef.putData(imageData).observe(.success, handler:{ (snapshot) in
-               
-                //save post and download url
-                self.imageDownlaodURL = snapshot.metadata?.downloadURL()?.absoluteString
-                let newPostDictionary = [
-                    "imageDictionaryURL" : self.imageDownlaodURL,
-                    //"exercise" : self.exercise
-                
-                ]
-                
-                newPostRef.setValue(newPostDictionary)
-                
-            })
-            
-        }  
-        
+
+    func toDict() -> [String: Any] {
+        let dict = [
+            "exercise": exercise,
+            "weights": weights,
+            "reps": reps,
+            "sets": sets,
+            "date": date,
+            "video": videoURL
+            ] as [String : Any]
+        return dict
     }
     
 }
+

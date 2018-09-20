@@ -38,8 +38,9 @@ class LoggedInViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(vcs.count), height: view.frame.height)
     }
     
-//    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//    }
+    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.isUserInteractionEnabled = false
+    }
 
 }
 
@@ -55,4 +56,5 @@ extension LoggedInViewController: UIScrollViewDelegate {
     }
 
 }
+
 
